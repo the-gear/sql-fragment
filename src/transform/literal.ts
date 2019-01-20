@@ -1,6 +1,5 @@
 import { Client } from 'pg';
 import { prepareValue } from 'pg/lib/utils';
-import { sql } from '../sql';
 import { NULL, SqlFragment } from '../sql-fragment';
 import { registerTransform } from './transform';
 
@@ -19,13 +18,20 @@ export function literal(value: unknown): SqlFragment {
     if (value === null) return NULL;
 
     if (typeof (value as any).toPostgres === 'function') {
-      return sql(escapeLiteral((value as any).toPostgres(prepareValue)));
+      return new SqlFragment([escapeLiteral((value as any).toPostgres(prepareValue))], []);
     }
 
-    if (typeof (value as any).toSQL === 'function') return sql((value as any).toSQL());
+    if (typeof (value as any).toSQL === 'function') {
+      const shouldBeSql = (value as any).toSQL();
+      if (shouldBeSql instanceof SqlFragment) {
+        return shouldBeSql;
+      } else {
+        return new SqlFragment([shouldBeSql], []);
+      }
+    }
   }
 
-  return sql(escapeLiteral((value as any).toString()));
+  return new SqlFragment([escapeLiteral((value as any).toString())], []);
 }
 
 registerTransform('', 'literal', literal);

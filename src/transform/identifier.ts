@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { sql } from '../sql';
+import { SqlFragment } from '../sql-fragment';
 import { registerTransform } from './transform';
 
 export const escapeIdentifier = Client.prototype.escapeIdentifier;
@@ -10,7 +10,7 @@ export function identifier(name: unknown) {
     throw new Error(`Expected nonempty string, got "${name}"`);
   }
 
-  return sql(escapeIdentifier(name));
+  return new SqlFragment([escapeIdentifier(name)], []);
 }
 
 registerTransform('id', 'ident', 'identifier', 'name', identifier);
