@@ -2,7 +2,7 @@
 
 > Write SQL queries for 🐘 Postgres in safe way
 
-[![Build Status](https://travis-ci.com/the-gear/sql-fragment.svg?branch=master)](https://travis-ci.org/the-gear/sql-fragment)
+[![Build Status](https://travis-ci.com/the-gear/sql-fragment.svg?branch=master)](https://travis-ci.com/the-gear/sql-fragment)
 [![NPM version](https://img.shields.io/npm/v/sql-fragment.svg)](https://www.npmjs.com/package/sql-fragment)
 ![Downloads](https://img.shields.io/npm/dm/sql-fragment.svg)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)

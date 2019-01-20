@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sql tag composes well 1`] = `
+-- name: undefined
+VALUES ($1, $2, $3, $4), ($5, $6, $7, $8)
+-- values: Array [
+  1,
+  2,
+  3,
+  4,
+  2,
+  3,
+  2,
+  3,
+]
+`;
+
+exports[`sql tag should accept $id transform 1`] = `
+-- name: undefined
+SELECT * from "table"
+-- values: Array []
+`;
+
+exports[`sql tag should accept parametrized string 1`] = `
+-- name: undefined
+SELECT $1 as i, $2 as s
+-- values: Array [
+  1,
+  "string value",
+]
+`;
+
+exports[`sql tag should accept parametrized string: JSON serialized 1`] = `
+Object {
+  "name": undefined,
+  "text": "SELECT $1 as i, $2 as s",
+  "values": Array [
+    1,
+    "string value",
+  ],
+}
+`;
+
+exports[`sql tag should accept single string 1`] = `
+-- name: undefined
+SELECT * FROM foo
+-- values: Array []
+`;
+
+exports[`sql tag should mix transforms and variables correctly 1`] = `
+-- name: undefined
+SELECT $1 as "col1", $2 as "col2" from "table"
+-- values: Array [
+  1,
+  2,
+]
+`;

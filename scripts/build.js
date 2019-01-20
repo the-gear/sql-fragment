@@ -52,7 +52,7 @@ function getDtsHeader(pkgName, version, author, repoUrl, tsVersion) {
 /**
  *
  * @param {string} path
- * @param {string | Blob} data
+ * @param {string | Buffer} data
  */
 function prependFileSync(path, data) {
   const existingFileContent = readFileSync(path, {

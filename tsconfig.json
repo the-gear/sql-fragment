@@ -1,27 +1,23 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "esnext",
     "target": "es5",
-    "lib": [
-      "dom",
-      "es2018"
-    ],
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "sourceMap": true,
-    "stripInternal": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "declarationDir": "dist/types",
-    "outDir": "dist/esm5",
+    "outDir": "dist/lib",
+    "lib": ["es2018"],
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "stripInternal": true,
     "resolveJsonModule": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "downlevelIteration": true
   },
-  "include": [
-    "./src"
-  ],
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"],
   "compileOnSave": false
 }
